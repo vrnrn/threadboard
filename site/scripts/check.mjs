@@ -78,7 +78,10 @@ assert.ok(
   ),
 );
 assert.ok(
-  readFileSync(join(output, "_headers"), "utf8").includes("connect-src 'none'"),
+  readFileSync(join(output, "_headers"), "utf8").includes("connect-src 'self'"),
+);
+assert.ok(
+  readFileSync(join(output, "_headers"), "utf8").includes("https://static.cloudflareinsights.com"),
 );
 assert.ok(
   existsSync(join(output, "demo/app.js")) &&
