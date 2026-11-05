@@ -1,8 +1,8 @@
 # Threadboard product site
 
-Static HTML, CSS, and a small JavaScript module. Dark is the first-visit default; the theme toggle remembers a local preference and switches the diagrams and actual product captures together. No remote scripts, fonts, trackers, or runtime services are required.
+Static HTML, CSS, and a small JavaScript module. Dark is the first-visit default; the theme toggle remembers a local preference and switches the diagrams and actual product captures together. The site works with its bundled scripts and fonts. In production, Cloudflare adds its privacy-preserving Web Analytics beacon; the content security policy allows that script and its same-origin `/cdn-cgi/rum` endpoint.
 
-The hero is the real `src/ui/main.tsx` app and its original stylesheet, compiled with a website-only transport. The demo uses example cards in browser memory: visitors can create, edit, move, archive, filter, and review tasks or simulate a chat handoff. No MCP calls, real Codex chats, model usage, database writes, or network requests occur. Reset restores the examples. The page theme also switches the live app. To regenerate the fixture after changing the product examples, run `npx tsx site/scripts/seed-demo.ts` from the repository root.
+The hero is the real `src/ui/main.tsx` app and its original stylesheet, compiled with a website-only transport. The demo uses example cards in browser memory: visitors can create, edit, move, archive, filter, and review tasks or simulate a chat handoff. These actions stay in the browser and make no MCP calls, real Codex chats, model requests or database writes. Reset restores the examples. The page theme also switches the live app. To regenerate the fixture after changing the product examples, run `npx tsx site/scripts/seed-demo.ts` from the repository root.
 
 ```sh
 npm ci

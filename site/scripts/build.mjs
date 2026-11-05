@@ -157,7 +157,7 @@ const hashes = [...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/g)]
   );
 writeFileSync(
   join(output, "_headers"),
-  `/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n  Permissions-Policy: camera=(), microphone=(), geolocation=()\n  Content-Security-Policy: default-src 'self'; script-src 'self' ${hashes.join(" ")}; style-src 'self'; img-src 'self' blob:; font-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'self'; form-action 'self'; connect-src 'none'\n/assets/*\n  Cache-Control: public, max-age=86400\n/downloads/*\n  Cache-Control: public, max-age=3600\n/downloads/*.zip\n  Content-Type: application/zip\n`,
+  `/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n  Permissions-Policy: camera=(), microphone=(), geolocation=()\n  Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com ${hashes.join(" ")}; style-src 'self'; img-src 'self' blob:; font-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'self'; form-action 'self'; connect-src 'self'\n/assets/*\n  Cache-Control: public, max-age=86400\n/downloads/*\n  Cache-Control: public, max-age=3600\n/downloads/*.zip\n  Content-Type: application/zip\n`,
 );
 writeFileSync(
   join(output, "robots.txt"),
